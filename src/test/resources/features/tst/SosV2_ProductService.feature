@@ -25,7 +25,7 @@ Feature: A101Product
 
   @skiptestdeneme
   Scenario: skiptestdeneme
-    Given this step does not exist
+    * karate.skip('disabled by design')
 
 
   @canli_PostTagCheckPrint
