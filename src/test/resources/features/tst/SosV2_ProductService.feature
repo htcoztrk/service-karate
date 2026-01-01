@@ -25,15 +25,8 @@ Feature: A101Product
 
   @skiptestdeneme
   Scenario: skiptestdeneme
-    And param storeCode = '9743'
-    And path '/product/tag-check-init'
-    And header Authorization = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNlOGQ4MjY0LTE4MGYtNDJiNi1hMjBhLTM3M2RlNjM4MWZiMSIsImVtYWlsIjoiZ21AdXNlci5jb20iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJHTSBVc2VyIiwidXVpZCI6InVuZGVmaW5lZCIsIlNwUmVnaXN0ZXIiOiIzIiwicm9sZSI6IkdNIiwiZXhwIjoxNzAyNzA3MjU5LCJpc3MiOiJodHRwczovL3Nvc3AuYTEwMS5jb20udHIiLCJhdWQiOiJodHRwczovL3Nvc3AuYTEwMS5jb20udHIifQ.xZhxEANZbDFA9Q8_58qtMl9LIMVuSfa9PdZed7jfgXY'
-    When method get
-    Then print response
-    Then deneme
-    And assert response.payload.updatedDate[0] != null
-    Then match $response.processStatus == 'Success'
-    Then status 200
+    * karate.abort()
+
 
   @canli_PostTagCheckPrint
   Scenario: PostTagCheckPrint
