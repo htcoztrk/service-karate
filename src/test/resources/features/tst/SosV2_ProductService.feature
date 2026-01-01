@@ -23,10 +23,13 @@ Feature: A101Product
     Then match $response.processStatus == 'Success'
     Then status 200
 
+  @ignore
   @skiptestdeneme
   Scenario: skiptestdeneme
-    * karate.skip()
-    * print 'bu satır çalışmaz'
+    And param storeCode = '9743'
+    And path '/product/tag-check-init'
+    When method get
+    Then status 200
 
 
   @canli_PostTagCheckPrint
