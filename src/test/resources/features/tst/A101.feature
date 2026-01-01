@@ -144,3 +144,22 @@ Feature: A101
     And assert response.payload.questionItems[5].name !=null
     And assert response.payload.questionItems[5].questionId !=null
     Then status 200
+
+
+  @skipdenemetest
+  Scenario: AuditQuestions
+    And path '/audit/get-audit-questions/108106'
+    And header Authorization = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM1ZGE5YzgwLTFkY2UtNDE3Yi1hMzMyLTk4NGI0YjI5NmMwMSIsImVtYWlsIjoiY2VvQHVzZXIuY29tIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiVGVzdCBLdWxsYW7EsWPEsSBVc2VyIiwidXVpZCI6IjI0MDQzYWJhLTZiN2UtNDhjNC04ZWJiLWJjNzBmNDQ1Mzg3YyIsIlNwUmVnaXN0ZXIiOiIxIiwicm9sZSI6IkNFTyIsImV4cCI6MTcxMDkxOTc5MSwiaXNzIjoiaHR0cHM6Ly9zb3NwLmExMDEuY29tLnRyIiwiYXVkIjoiaHR0cHM6Ly9zb3NwLmExMDEuY29tLnRyIn0.taywsLw-d_NV4b6O5PqxQnSgSgjXH8IzbIxzSZdWQAQ'
+    When method get
+    Then deneme biseyler
+    Then match $response.payload.answeringUser == 'CEO'
+    Then match $response.payload.questionItems[1] !=null
+    And assert response.payload.questionItems[1].name !=null
+    And assert response.payload.questionItems[1].questionId !=null
+    And assert response.payload.questionItems[1].order !=null
+    And assert response.payload.questionItems[1].questionAnswerTypeId !=null
+    Then match $response.payload.questionItems[2] !=null
+    Then match $response.payload.questionItems[5] !=null
+    And assert response.payload.questionItems[5].name !=null
+    And assert response.payload.questionItems[5].questionId !=null
+    Then status 200
