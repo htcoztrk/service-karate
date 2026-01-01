@@ -25,8 +25,7 @@ Feature: A101Product
 
   @skiptestdeneme
   Scenario: skiptestdeneme
-    * thisStepDoesNotExist()
-
+    Given this step does not exist
 
 
   @canli_PostTagCheckPrint
