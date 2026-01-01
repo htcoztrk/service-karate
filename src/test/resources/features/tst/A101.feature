@@ -147,7 +147,7 @@ Feature: A101
 
 
   @skipdenemetest
-  Scenario: AuditQuestions
+  Scenario: denemeskip
     And path '/audit/get-audit-questions/108106'
     And header Authorization = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImM1ZGE5YzgwLTFkY2UtNDE3Yi1hMzMyLTk4NGI0YjI5NmMwMSIsImVtYWlsIjoiY2VvQHVzZXIuY29tIiwicHJlZmVycmVkX3VzZXJuYW1lIjoiVGVzdCBLdWxsYW7EsWPEsSBVc2VyIiwidXVpZCI6IjI0MDQzYWJhLTZiN2UtNDhjNC04ZWJiLWJjNzBmNDQ1Mzg3YyIsIlNwUmVnaXN0ZXIiOiIxIiwicm9sZSI6IkNFTyIsImV4cCI6MTcxMDkxOTc5MSwiaXNzIjoiaHR0cHM6Ly9zb3NwLmExMDEuY29tLnRyIiwiYXVkIjoiaHR0cHM6Ly9zb3NwLmExMDEuY29tLnRyIn0.taywsLw-d_NV4b6O5PqxQnSgSgjXH8IzbIxzSZdWQAQ'
     When method get
