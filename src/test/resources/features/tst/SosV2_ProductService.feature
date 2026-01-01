@@ -1,6 +1,7 @@
 Feature: A101Product
 
   Background:
+    * if (karate.info.scenarioTags.contains('skiptestdeneme')) karate.abort()
     * url 'https://sosp.a101.com.tr/api'
     * def response = karate.http('api')
     * if (response.timeTaken >= 10000) karate.abort()
@@ -25,7 +26,14 @@ Feature: A101Product
 
   @skiptestdeneme
   Scenario: skiptestdeneme
-    * karate.abort()
+    And param storeCode = '9743'
+    And path '/product/tag-check-init'
+    And header Authorization = 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjNlOGQ4MjY0LTE4MGYtNDJiNi1hMjBhLTM3M2RlNjM4MWZiMSIsImVtYWlsIjoiZ21AdXNlci5jb20iLCJwcmVmZXJyZWRfdXNlcm5hbWUiOiJHTSBVc2VyIiwidXVpZCI6InVuZGVmaW5lZCIsIlNwUmVnaXN0ZXIiOiIzIiwicm9sZSI6IkdNIiwiZXhwIjoxNzAyNzA3MjU5LCJpc3MiOiJodHRwczovL3Nvc3AuYTEwMS5jb20udHIiLCJhdWQiOiJodHRwczovL3Nvc3AuYTEwMS5jb20udHIifQ.xZhxEANZbDFA9Q8_58qtMl9LIMVuSfa9PdZed7jfgXY'
+    When method get
+    Then print response
+    And assert response.payload.updatedDate[0] != null
+    Then match $response.processStatus == 'Success'
+    Then status 200
 
 
   @canli_PostTagCheckPrint
