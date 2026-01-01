@@ -1,7 +1,7 @@
 Feature: A101Product
 
   Background:
-    * if (karate.info.scenarioTags.contains('skiptestdeneme')) karate.abort()
+    * if (karate.info.scenarioTags.includes('skiptestdeneme')) karate.abort()
     * url 'https://sosp.a101.com.tr/api'
     * def response = karate.http('api')
     * if (response.timeTaken >= 10000) karate.abort()
